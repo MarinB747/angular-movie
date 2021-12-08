@@ -1,0 +1,16 @@
+$primaryColor: rgb(52, 211, 153);
+$secondaryColor: rgb(75, 85, 99);
+@mixin FlexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+@mixin AppContainer($direction) {
+  margin-top: 10%;
+  @include FlexCenter($direction);
+}
+
+.app__container {
+  @include AppContainer(column);
+}

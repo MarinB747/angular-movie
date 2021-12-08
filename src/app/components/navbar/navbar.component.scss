@@ -1,0 +1,18 @@
+@import "../../app.component.scss";
+
+.navbar {
+@include FlexCenter(row);
+background-image: url('../../../assets/Images/hero_bg.jpg');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 15%;
+}
+.navbar__btn {
+position: relative;
+right: -45%;
+}

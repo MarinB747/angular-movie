@@ -1,0 +1,9 @@
+@import "../../app.component.scss";
+.page__container {
+  @include AppContainer(row);
+}
+
+.movie__table {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}

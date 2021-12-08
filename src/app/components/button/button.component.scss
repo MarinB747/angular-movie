@@ -1,0 +1,13 @@
+@import '../../app.component.scss';
+
+button {
+    width: 5rem;
+    height: 3rem;
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    border-radius: 1rem;
+    border: none;
+}
+.second__btn {
+    color: white;
+}

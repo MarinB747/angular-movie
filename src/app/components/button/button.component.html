@@ -1,0 +1,6 @@
+<div *ngIf='clicked; else secondBtn'>
+    <button #secondBtn (click)='changeColor()'>{{btn_txtName}}</button>
+</div>
+<ng-template #secondBtn>
+      <button class='second__btn' (click)='changeColor()'>{{btn_txtName}}</button>
+</ng-template>

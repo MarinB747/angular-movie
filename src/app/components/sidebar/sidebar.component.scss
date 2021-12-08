@@ -1,0 +1,17 @@
+@import '../../app.component.scss';
+
+.sidebar {
+@include FlexCenter(column);
+justify-content: flex-start;
+height: 100vh;
+width: 10%;
+position: absolute;
+left: 0;
+top: 0;
+background-color: $primaryColor;
+border-top-right-radius: 1rem;
+border-bottom-right-radius: 1rem;
+}
+.sidebar__btn {
+    margin-top: 2rem;
+}
