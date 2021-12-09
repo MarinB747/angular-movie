@@ -1,9 +1,104 @@
 @import "../../app.component.scss";
 .page__container {
-  @include AppContainer(row);
+  @include AppContainer(column);
 }
 
 .movie__table {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 4rem;
+}
+
+.image {
+  width: 16rem;
+}
+
+.movie__wrapper {
+  @include FlexCenter(column);
+  width: 16rem;
+  position: relative;
+}
+.movie__raiting {
+  background-color: $secondaryColor;
+  width: 3.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  padding-right: 2%;
+  align-items: flex-end;
+  color: white;
+  font-size: 1.875rem;
+  position: absolute;
+  border-top-right-radius: 9999px;
+  left: 0;
+  bottom: -7.8%;
+}
+.movie__overview {
+  position: absolute;
+  width: 16rem;
+  color: white;
+  background-color: $primaryColor;
+  z-index: 10;
+  border-top-right-radius: 10%;
+  border-top-left-radius: 10%;
+  max-height: 24rem;
+  overflow-y: auto;
+  font-size: 1.25rem;
+  text-align: center;
+  opacity: 0%;
+  transition: opacity 0.25s ease-in-out;
+  bottom: -5.4%;
+}
+.movie__overview:hover {
+  opacity: 100%;
+  transition: opacity 0.25s ease-in-out;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.movie__title {
+  width: 16rem;
+  text-align: center;
+  font-size: 1.2rem;
+  height: 2rem;
+}
+.btn__wrapper {
+  display: flex;
+  position: relative;
+  left: -43%;
+  margin-top: 2rem;
+}
+.page__btn {
+  margin: 0 2rem;
+}
+@media only screen and (max-width: 1620px) {
+  .movie__table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4rem;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .movie__table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4rem;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .movie__table {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 4rem;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .movie__table {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 4rem;
+  }
 }

@@ -7,6 +7,9 @@ import { MoviesService } from 'src/app/movies.service';
 })
 export class MoviesComponent implements OnInit {
   movies: any[] = [];
+  details = 'Details';
+  prev = 'Previous';
+  next = 'Next';
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit() {

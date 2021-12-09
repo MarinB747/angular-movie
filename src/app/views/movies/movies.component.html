@@ -2,20 +2,28 @@
   <div>
     <div *ngFor="let item of movies" class="movie__table">
       <div *ngFor="let movie of item">
-        <p>
+        <div class="movie__wrapper">
+          <img
+            src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
+            alt=""
+            class="image"
+          />
+          <p class="movie__raiting">
+            {{ movie.vote_average }}
+          </p>
+          <p class="movie__overview">
+            {{ movie.overview }}
+          </p>
+        </div>
+        <p class="movie__title">
           {{ movie.title }}
         </p>
-        <img
-          src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
-          alt=""
-        />
-        <p>
-          {{ movie.vote_average }}
-        </p>
-        <p>
-          {{ movie.overview }}
-        </p>
+        <app-button [btn_txt]="details"></app-button>
       </div>
     </div>
+  </div>
+  <div class="btn__wrapper">
+    <app-button class="page__btn" [btn_txt]="prev"></app-button>
+    <app-button class="page__btn" [btn_txt]="next"></app-button>
   </div>
 </div>
