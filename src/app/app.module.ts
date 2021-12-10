@@ -10,7 +10,7 @@ import { WishlistComponent } from './views/wishlist/wishlist.component';
 import { ButtonComponent } from './components/button/button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ErrorComponent } from './views/error/error.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     MoviesComponent,
     MovieDetailComponent,
     WishlistComponent,
-    ButtonComponent
+    ButtonComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +30,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

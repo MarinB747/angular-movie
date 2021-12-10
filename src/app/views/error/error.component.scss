@@ -1,0 +1,5 @@
+@import "../../app.component.scss";
+.page__container {
+  @include FlexCenter(column);
+  margin-top: 180px;
+}
