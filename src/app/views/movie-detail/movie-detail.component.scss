@@ -1,0 +1,61 @@
+@import "../../app.component.scss";
+
+.page__container {
+  @include FlexCenter(column);
+  margin-top: 140px;
+  padding-top: 50px;
+  width: 110vw;
+  height: 78vh;
+}
+.movie__wrapper {
+  @include FlexCenter(column);
+}
+.image__1 {
+  width: 32rem;
+  position: absolute;
+  bottom: 0;
+  opacity: 50%;
+}
+
+.image__2 {
+  width: 0;
+  position: absolute;
+  right: 5%;
+  bottom: 13%;
+}
+
+.movie__overview {
+  width: 50%;
+  text-align: center;
+}
+@media only screen and (min-width: 1380px) {
+  .image__1 {
+    width: 22rem;
+    position: absolute;
+    left: 5%;
+    bottom: 13%;
+    opacity: 100%;
+  }
+  .image__2 {
+    width: 22rem;
+    position: absolute;
+    right: 5%;
+    bottom: 13%;
+  }
+  .movie__overview {
+    width: 25%;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .image__1 {
+    width: max-content;
+    position: absolute;
+    bottom: -20%;
+    opacity: 50%;
+  }
+  .movie__overview {
+    width: 50%;
+    text-align: center;
+  }
+}

@@ -4,17 +4,22 @@
       <img
         src="https://image.tmdb.org/t/p/w500{{ movie[0].poster_path }}"
         alt=""
-        class="image"
+        class="image__1"
       />
-      <p class="movie__raiting">
-        {{ movie[0].vote_average }}
-      </p>
-      <p class="movie__overview">
-        {{ movie[0].overview }}
-      </p>
+      <img
+        src="https://image.tmdb.org/t/p/w500{{ movie[0].poster_path }}"
+        alt=""
+        class="image__2"
+      />
+      <h1 class="movie__title">
+        {{ movie[0].title }}
+      </h1>
+      <h2 class="movie__title">
+        {{ movie[0].tagline }}
+      </h2>
+      <p>{{ movie[0].runtime }} minutes</p>
+      <p>Realsed on: {{ movie[0].release_date }}</p>
+      <p class="movie__overview">{{ movie[0].overview }}</p>
     </div>
-    <p class="movie__title">
-      {{ movie[0].title }}
-    </p>
   </div>
 </div>

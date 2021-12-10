@@ -1,6 +1,7 @@
 @import "../../app.component.scss";
 .page__container {
-  @include AppContainer(column);
+  @include FlexCenter(column);
+  margin-top: 180px;
 }
 
 .movie__table {
