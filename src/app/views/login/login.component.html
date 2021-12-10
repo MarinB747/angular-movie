@@ -1,0 +1,25 @@
+<div class="page__container">
+  <form (submit)="onSubmit()">
+    <p>
+      <label for="username"
+        ><input
+          [(ngModel)]="username"
+          type="text"
+          name="username"
+          placeholder="Username"
+        />
+      </label>
+    </p>
+    <p>
+      <label from="password">
+        <input
+          [(ngModel)]="password"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+      </label>
+    </p>
+    <input type="submit" value="Submit" />
+  </form>
+</div>

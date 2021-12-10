@@ -5,7 +5,7 @@
   <a routerLink="/wishlist" class="sidebar__btn"
     ><app-button class="sidebar__btn" [btn_txt]="secondButton"></app-button
   ></a>
-  <a routerLink="/" class="sidebar__btn"
+  <a routerLink="/" class="sidebar__btn" (click)="onLogout()"
     ><app-button class="sidebar__btn" [btn_txt]="thirdButton"></app-button
   ></a>
 </div>
