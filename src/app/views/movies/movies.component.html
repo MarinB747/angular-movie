@@ -23,7 +23,15 @@
     </div>
   </div>
   <div class="btn__wrapper">
-    <app-button class="page__btn" [btn_txt]="prev"></app-button>
-    <app-button class="page__btn" [btn_txt]="next"></app-button>
+    <app-button
+      class="page__btn"
+      [btn_txt]="prev"
+      (click)="onPrev()"
+    ></app-button>
+    <app-button
+      class="page__btn"
+      [btn_txt]="next"
+      (click)="onNext()"
+    ></app-button>
   </div>
 </div>
