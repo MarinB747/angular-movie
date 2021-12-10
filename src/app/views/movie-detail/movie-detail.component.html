@@ -1,1 +1,20 @@
-<p>movie-detail works!</p>
+<div class="page__container">
+  <div>
+    <div class="movie__wrapper">
+      <img
+        src="https://image.tmdb.org/t/p/w500{{ movie[0].poster_path }}"
+        alt=""
+        class="image"
+      />
+      <p class="movie__raiting">
+        {{ movie[0].vote_average }}
+      </p>
+      <p class="movie__overview">
+        {{ movie[0].overview }}
+      </p>
+    </div>
+    <p class="movie__title">
+      {{ movie[0].title }}
+    </p>
+  </div>
+</div>

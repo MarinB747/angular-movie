@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/movies', pathMatch: 'full' },
   { path: 'movies', component: MoviesComponent },
   { path: 'wishlist', component: WishlistComponent },
-  { path: 'movie/:id', component: MovieDetailComponent },
+  { path: 'movies/:id', component: MovieDetailComponent },
 ];
 
 @NgModule({

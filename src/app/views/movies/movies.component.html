@@ -18,7 +18,9 @@
         <p class="movie__title">
           {{ movie.title }}
         </p>
-        <app-button [btn_txt]="details"></app-button>
+        <a routerLink="/movies/{{ movie.id }}">
+          <app-button [btn_txt]="details"></app-button>
+        </a>
       </div>
     </div>
   </div>

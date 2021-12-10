@@ -11,11 +11,8 @@ export class MoviesComponent implements OnInit {
   details = 'Details';
   prev = 'Previous';
   next = 'Next';
-  constructor(
-    private moviesService: MoviesService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+
+  constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit() {
     this.getMovies();
@@ -25,7 +22,6 @@ export class MoviesComponent implements OnInit {
     this.moviesService
       .getMovies()
       .subscribe((data: any) => this.movies.push(data.results));
-    console.log(this.movies);
   }
   onNext() {
     if (this.moviesService.page === 50) {
