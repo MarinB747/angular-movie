@@ -14,9 +14,12 @@ export class MovieDetailComponent implements OnInit {
     private localStorage: LocalStorageService
   ) {}
   movie: any = [];
+  checkWishlist = true;
   btnTxt = 'Add to Wishlist';
+  btnTxt2 = 'Remove from Wishlist';
   ngOnInit(): void {
     this.getMovie();
+    this.searchWishlist();
   }
 
   getMovie(): any {
@@ -27,6 +30,23 @@ export class MovieDetailComponent implements OnInit {
       .subscribe((data: any) => this.movie.push(data));
   }
   addToWishlist() {
+    this.checkWishlist ? this.firstCaseWishlist() : this.secondCaseWishlist();
+    this.checkWishlist = !this.checkWishlist;
+  }
+  searchWishlist() {
+    const id: any = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.localStorage.list.some((e) => e[0].id === id))
+      return (
+        (this.checkWishlist = !this.checkWishlist), (this.btnTxt = this.btnTxt2)
+      );
+    else return (this.checkWishlist = this.checkWishlist);
+  }
+  firstCaseWishlist() {
     this.localStorage.setWishlist(this.movie);
+    this.btnTxt = 'Remove from Wishlist';
+  }
+  secondCaseWishlist() {
+    this.localStorage.removeFromWishlist(this.movie);
+    this.btnTxt = 'Add to Wishlist';
   }
 }

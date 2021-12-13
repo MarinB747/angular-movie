@@ -9,6 +9,13 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 4rem;
 }
+.wishlist__star {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  right: 0;
+  top: 0;
+}
 
 .image {
   width: 16rem;

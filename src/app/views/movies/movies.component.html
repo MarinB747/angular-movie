@@ -3,6 +3,7 @@
     <div *ngFor="let item of movies" class="movie__table">
       <div *ngFor="let movie of item">
         <div class="movie__wrapper">
+          <span style="height: 0; width: 0">{{ checkWishlist(movie.id) }}</span>
           <img
             src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
             alt=""
@@ -11,6 +12,12 @@
           <p class="movie__raiting">
             {{ movie.vote_average }}
           </p>
+          <img
+            *ngIf="wishlistToggle"
+            src="../../../assets/Images/wishlist.png"
+            alt="/"
+            class="wishlist__star"
+          />
           <p class="movie__overview">
             {{ movie.overview }}
           </p>

@@ -1,7 +1,7 @@
 <div class="page__container">
-  <!-- <div>
-    <div *ngFor="let item of movies" class="movie__table">
-      <div *ngFor="let movie of item">
+  <div class="movie__table">
+    <div *ngFor="let item of wishlist" >
+      <div *ngFor="let movie of item" >
         <div class="movie__wrapper">
           <img
             src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"
@@ -19,9 +19,9 @@
           {{ movie.title }}
         </p>
         <a routerLink="/movies/{{ movie.id }}">
-          <app-button [btn_txt]="details"></app-button>
+          <app-button [btn_txt]="btnTxt"></app-button>
         </a>
       </div>
     </div>
-  </div> -->
+  </div>
 </div>
