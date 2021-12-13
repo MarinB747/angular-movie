@@ -14,6 +14,7 @@ import { ErrorComponent } from './views/error/error.component';
 import { LoginComponent } from './views/login/login.component';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

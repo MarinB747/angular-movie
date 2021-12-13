@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,19 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  @Input() username = '';
-  @Input() password = '';
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl(''),
+  });
+
   btnTxt = 'Submit';
 
   constructor(private cookieService: CookieService, private router: Router) {}
 
   ngOnInit(): void {
-    this.username = this.cookieService.get('User');
-    this.username = this.cookieService.get('Password');
+    this.loginForm.patchValue({ username: this.cookieService.get('User') });
+    this.loginForm.patchValue({ password: this.cookieService.get('Password') });
   }
+
   onSubmit() {
-    this.cookieService.set('User', this.username);
-    this.cookieService.set('Pass', this.password);
+    const username = this.loginForm.get('username')!.value;
+    const password = this.loginForm.get('password')!.value;
+    this.cookieService.set('User', username);
+    this.cookieService.set('Pass', password);
     this.router.navigate(['/movies']);
   }
 }
