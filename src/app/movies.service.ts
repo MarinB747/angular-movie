@@ -5,11 +5,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MoviesService {
-  page = 1;
-  getMovies(): Observable<any> {
-    console.log(this.page);
+  getMovies(page: number): Observable<any> {
     return this.http.get(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=f032274d9c9fd3adb40ade7cdc65485b&language=en-US&page=${this.page}`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=f032274d9c9fd3adb40ade7cdc65485b&language=en-US&page=${page}`
     );
   }
   getSingleMovie(movieId: any) {

@@ -20,6 +20,11 @@
       <p>{{ movie[0].runtime }} minutes</p>
       <p>Realsed on: {{ movie[0].release_date }}</p>
       <p class="movie__overview">{{ movie[0].overview }}</p>
+      <app-button
+        class="wishlist__btn"
+        [btn_txt]="btnTxt"
+        (click)="addToWishlist()"
+      ></app-button>
     </div>
   </div>
 </div>

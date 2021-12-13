@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/movies.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { LocalStorageService } from 'src/app/local-storage.service';
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
@@ -10,9 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 export class MovieDetailComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private localStorage: LocalStorageService
   ) {}
   movie: any = [];
+  btnTxt = 'Add to Wishlist';
   ngOnInit(): void {
     this.getMovie();
   }
@@ -20,11 +22,11 @@ export class MovieDetailComponent implements OnInit {
   getMovie(): any {
     this.movie.length = 0;
     const id: any = this.route.snapshot.paramMap.get('id');
-    console.log(id);
     this.moviesService
       .getSingleMovie(id)
       .subscribe((data: any) => this.movie.push(data));
-
-    console.log(this.movie);
+  }
+  addToWishlist() {
+    this.localStorage.setWishlist(this.movie);
   }
 }

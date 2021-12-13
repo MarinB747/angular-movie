@@ -7,7 +7,7 @@ import {
   transition,
   // ...
 } from '@angular/animations';
-
+import { LocalStorageService } from './local-storage.service';
 @Component({
   selector: 'app-root',
   animations: [
@@ -31,4 +31,8 @@ export class AppComponent {
   setSidebar(event: boolean) {
     this.toggleSidebar = event;
   }
+  ngOnInit(): void {
+    this.localStorage.getWishlist();
+  }
+  constructor(private localStorage: LocalStorageService) {}
 }

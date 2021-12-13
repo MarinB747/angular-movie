@@ -11,37 +11,44 @@ export class MoviesComponent implements OnInit {
   details = 'Details';
   prev = 'Previous';
   next = 'Next';
+  page: number = 1;
 
-  constructor(private moviesService: MoviesService, private router: Router) {}
+  constructor(
+    private moviesService: MoviesService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
     this.getMovies();
   }
   getMovies(): any {
     this.movies.length = 0;
+    const id: any = this.route.snapshot.queryParams['page'];
+    console.log(id);
     this.moviesService
-      .getMovies()
+      .getMovies(id)
       .subscribe((data: any) => this.movies.push(data.results));
   }
   onNext() {
-    if (this.moviesService.page === 50) {
-      this.moviesService.page = 1;
+    if (this.page === 50) {
+      this.page = 1;
     } else {
-      this.moviesService.page = this.moviesService.page + 1;
+      this.page = this.page + 1;
     }
     this.router.navigate(['/movies'], {
-      queryParams: { page: this.moviesService.page },
+      queryParams: { page: this.page },
     });
     this.ngOnInit();
   }
   onPrev() {
-    if (this.moviesService.page === 1) {
-      this.moviesService.page = 50;
+    if (this.page === 1) {
+      this.page = 50;
     } else {
-      this.moviesService.page = this.moviesService.page - 1;
+      this.page = this.page - 1;
     }
     this.router.navigate(['/movies'], {
-      queryParams: { page: this.moviesService.page },
+      queryParams: { page: this.page },
     });
     this.ngOnInit();
   }
