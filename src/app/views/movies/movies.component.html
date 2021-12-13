@@ -1,5 +1,6 @@
 <div class="page__container">
   <div>
+    <div *ngIf="loader" class="loader"></div>
     <div *ngFor="let item of movies" class="movie__table">
       <div *ngFor="let movie of item">
         <div class="movie__wrapper">
@@ -33,11 +34,13 @@
   </div>
   <div class="btn__wrapper">
     <app-button
+      *ngIf="buttonHide"
       class="page__btn"
       [btn_txt]="prev"
       (click)="onPrev()"
     ></app-button>
     <app-button
+      *ngIf="buttonHide"
       class="page__btn"
       [btn_txt]="next"
       (click)="onNext()"

@@ -9,6 +9,8 @@ import { LocalStorageService } from 'src/app/local-storage.service';
 export class WishlistComponent implements OnInit {
   wishlist = this.localStorage.list;
   btnTxt = 'Details';
+  loader = true;
+
   constructor(private localStorage: LocalStorageService) {}
 
   ngOnInit(): void {

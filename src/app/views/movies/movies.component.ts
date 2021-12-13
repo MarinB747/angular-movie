@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/movies.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'src/app/local-storage.service';
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
@@ -14,7 +15,8 @@ export class MoviesComponent implements OnInit {
   next = 'Next';
   wishlistToggle = false;
   page: number = 1;
-
+  loader = true;
+  buttonHide = false;
   constructor(
     private localStorage: LocalStorageService,
     private moviesService: MoviesService,
@@ -24,6 +26,9 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit() {
     this.getMovies();
+    setTimeout(() => (this.loader = false), 1000);
+    setTimeout(() => (this.buttonHide = true), 1000);
+    this.page = Number(this.route.snapshot.queryParams['page']);
   }
   getMovies(): any {
     this.movies.length = 0;
@@ -41,6 +46,8 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies'], {
       queryParams: { page: this.page },
     });
+    this.loader = true;
+    this.buttonHide = false;
     this.ngOnInit();
   }
   onPrev() {
@@ -52,6 +59,8 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies'], {
       queryParams: { page: this.page },
     });
+    this.loader = true;
+    this.buttonHide = false;
     this.ngOnInit();
   }
   checkWishlist(movieId: any) {
