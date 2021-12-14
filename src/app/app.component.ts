@@ -8,6 +8,9 @@ import {
   // ...
 } from '@angular/animations';
 import { LocalStorageService } from './local-storage.service';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   animations: [
@@ -33,6 +36,15 @@ export class AppComponent {
   }
   ngOnInit(): void {
     this.localStorage.getWishlist();
+    this.checkUser();
   }
-  constructor(private localStorage: LocalStorageService) {}
+  checkUser() {
+    if (this.cookieService.get('User') !== null)
+      this.router.navigate(['/movies']);
+  }
+  constructor(
+    private localStorage: LocalStorageService,
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 }
