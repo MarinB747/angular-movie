@@ -64,7 +64,8 @@ export class MoviesComponent implements OnInit {
     this.ngOnInit();
   }
   checkWishlist(movieId: any) {
-    if (this.localStorage.list.some((e) => e[0].id === movieId))
+    if (this.localStorage.list === null) return (this.wishlistToggle = false);
+    else if (this.localStorage.list.some((e) => e[0].id === movieId))
       return (this.wishlistToggle = true);
     else return (this.wishlistToggle = false);
   }
